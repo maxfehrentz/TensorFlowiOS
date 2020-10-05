@@ -15,6 +15,7 @@
 
 import Accelerate
 import Foundation
+import shared
 
 extension CVPixelBuffer {
   var size: CGSize {
@@ -128,7 +129,7 @@ extension CVPixelBuffer {
     let width = CVPixelBufferGetWidth(self)
     let height = CVPixelBufferGetHeight(self)
     let sourceBytesPerRow = CVPixelBufferGetBytesPerRow(self)
-    let destinationBytesPerRow = Constants.rgbPixelChannels * width
+    let destinationBytesPerRow = Int(Constants.Companion().rgbPixelChannels) * width
 
     // Assign input image to `sourceBuffer` to convert it.
     var sourceBuffer = vImage_Buffer(
@@ -167,6 +168,6 @@ extension CVPixelBuffer {
     if isModelQuantized { return imageByteData }
 
     let imageBytes = [UInt8](imageByteData)
-    return Data(copyingBufferOf: imageBytes.map { Float($0) / Constants.maxRGBValue })
+    return Data(copyingBufferOf: imageBytes.map { Float($0) / Constants.Companion().maxRGBValue })
   }
 }

@@ -16,9 +16,7 @@ import Accelerate
 import CoreImage
 import Foundation
 import TensorFlowLite
-import UIKit
 import shared
-
 /// This class handles all data preprocessing and makes calls to run inference on a given frame
 /// by invoking the `Interpreter`. It then formats the inferences obtained.
 class ModelDataHandler {
@@ -37,8 +35,8 @@ class ModelDataHandler {
     /// A failable initializer for `ModelDataHandler`. A new instance is created if the model is
     /// successfully loaded from the app's main bundle. Default `threadCount` is 2.
     init(
-        threadCount: Int = 2,
-        delegate: Delegates = .Metal
+        threadCount: Int = Int(Constants.Companion().threadCount),
+        delegate: Delegates = .metal
     ) throws {
         // Construct the path to the model file.
         guard
@@ -57,9 +55,9 @@ class ModelDataHandler {
         // Specify the delegates for the `Interpreter`.
         var delegates: [Delegate]?
         switch delegate {
-        case .Metal:
+        case .metal:
             delegates = [MetalDelegate()]
-        case .CoreML:
+        case .npu:
             if let coreMLDelegate = CoreMLDelegate() {
                 delegates = [coreMLDelegate]
             } else {
@@ -361,23 +359,6 @@ enum BodyPart: String, CaseIterable {
     ]
 }
 
-// MARK: - Delegates Enum
-enum Delegates: Int, CaseIterable {
-  case CPU
-  case Metal
-  case CoreML
-
-  var description: String {
-    switch self {
-    case .CPU:
-      return "CPU"
-    case .Metal:
-      return "GPU"
-    case .CoreML:
-      return "NPU"
-    }
-  }
-}
 
 // MARK: - Custom Errors
 enum PostprocessError: Error {
@@ -387,7 +368,10 @@ enum PostprocessError: Error {
 // MARK: - Information about the model file.
 typealias FileInfo = (name: String, extension: String)
 
-enum Model {
+struct Model {
+    
+    private init(){}
+    
     static let file: FileInfo = (
         name: "posenet_mobilenet_v1_100_257x257_multi_kpt_stripped", extension: "tflite"
     )

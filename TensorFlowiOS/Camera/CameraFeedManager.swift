@@ -23,39 +23,6 @@ import AVFoundation
 import UIKit
 import os
 
-// MARK: - CameraFeedManagerDelegate Declaration
-@objc protocol CameraFeedManagerDelegate: class {
-  /// This method delivers the pixel buffer of the current frame seen by the device's camera.
-  @objc optional func cameraFeedManager(
-    _ manager: CameraFeedManager, didOutput pixelBuffer: CVPixelBuffer
-  )
-
-//  /// This method initimates that a session runtime error occured.
-//  func cameraFeedManagerDidEncounterSessionRunTimeError(_ manager: CameraFeedManager)
-//
-//  /// This method initimates that the session was interrupted.
-//  func cameraFeedManager(
-//    _ manager: CameraFeedManager, sessionWasInterrupted canResumeManually: Bool
-//  )
-//
-//  /// This method initimates that the session interruption has ended.
-//  func cameraFeedManagerDidEndSessionInterruption(_ manager: CameraFeedManager)
-
-  /// This method initimates that there was an error in video configurtion.
-  func presentVideoConfigurationErrorAlert(_ manager: CameraFeedManager)
-
-  /// This method initimates that the camera permissions have been denied.
-  func presentCameraPermissionsDeniedAlert(_ manager: CameraFeedManager)
-}
-
-/// This enum holds the state of the camera initialization.
-// MARK: - Camera Initialization State Enum
-enum CameraConfiguration {
-  case success
-  case failed
-  case permissionDenied
-}
-
 /// This class manages all camera related functionalities.
 // MARK: - Camera Related Functionalies Manager
 class CameraFeedManager: NSObject {
@@ -299,25 +266,5 @@ class CameraFeedManager: NSObject {
 //    } else {
 //      delegate?.cameraFeedManagerDidEncounterSessionRunTimeError(self)
 //    }
-  }
-}
-
-/// AVCaptureVideoDataOutputSampleBufferDelegate
-extension CameraFeedManager: AVCaptureVideoDataOutputSampleBufferDelegate {
-  /// This method delegates the CVPixelBuffer of the frame seen by the camera currently.
-  func captureOutput(
-    _ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer,
-    from connection: AVCaptureConnection
-  ) {
-
-    // Converts the CMSampleBuffer to a CVPixelBuffer.
-    let pixelBuffer: CVPixelBuffer? = CMSampleBufferGetImageBuffer(sampleBuffer)
-
-    guard let imagePixelBuffer = pixelBuffer else {
-      return
-    }
-
-    // Delegates the pixel buffer to the ViewController.
-    delegate?.cameraFeedManager?(self, didOutput: imagePixelBuffer)
   }
 }

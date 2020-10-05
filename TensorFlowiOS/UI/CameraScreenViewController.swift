@@ -10,18 +10,14 @@ import shared
 import SnapKit
 import os
 
-class ViewController: UIViewController {
+class CameraScreenViewController: UIViewController {
     
     private var previewView = PreviewView()
     private var overlayView = OverlayView()
-    // MARK: ModelDataHandler traits
-    private let threadCount = 2
-    private let delegate = "NPU"
     
     // MARK: result variable
     private var inferencedData: InferencedData?
     
-    private let minimumScore: Float = 0.2
     private var overlayViewFrame: CGRect?
     private var previewViewFrame: CGRect?
     // MARK: Manager that handles all camera related functionality
@@ -82,7 +78,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - CameraFeedManagerDelegate Methods
-extension ViewController: CameraFeedManagerDelegate {
+extension CameraScreenViewController: CameraFeedManagerDelegate {
   func cameraFeedManager(_ manager: CameraFeedManager, didOutput pixelBuffer: CVPixelBuffer) {
     runModel(on: pixelBuffer)
   }
@@ -170,7 +166,7 @@ extension ViewController: CameraFeedManagerDelegate {
     // Draw result.
     DispatchQueue.main.async {
       // If score is too low, clear result remaining in the overlayView.
-      if result.score < self.minimumScore {
+        if result.score < Constants.Companion().minimumScore {
         self.clearResult()
         return
       }

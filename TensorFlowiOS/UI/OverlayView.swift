@@ -40,7 +40,6 @@ class OverlayView: UIView {
     }
     
     func drawLine(of line: Line) {
-        print("I'm drawing a line")
         let linePath = UIBezierPath()
         linePath.move(to: CGPoint(x: line.from.x, y: line.from.y))
         linePath.addLine(to: CGPoint(x: line.to.x, y: line.to.y))
