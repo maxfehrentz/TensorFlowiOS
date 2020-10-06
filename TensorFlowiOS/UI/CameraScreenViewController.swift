@@ -11,8 +11,8 @@ import os
 
 class CameraScreenViewController: UIViewController {
     
-    private(set) var previewView = PreviewView()
-    private(set) var overlayView = OverlayView()
+    let previewView = PreviewView()
+    let overlayView = OverlayView()
     private var viewModel: CameraScreenViewModel!
 
     override func viewDidLoad() {
@@ -21,7 +21,6 @@ class CameraScreenViewController: UIViewController {
         layoutSubviews()
         configureSubviews()
         viewModel = CameraScreenViewModel(cameraScreenDelegate: self)
-        viewModel.cameraScreenDelegate = self
     }
     
     private func addSubviews() {
@@ -33,7 +32,6 @@ class CameraScreenViewController: UIViewController {
         previewView.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
-        // TODO: overlayView will probably need different constraints
         overlayView.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
