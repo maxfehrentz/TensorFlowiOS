@@ -22,10 +22,12 @@
 import AVFoundation
 import UIKit
 import os
+import shared
 
 /// This class manages all camera related functionalities.
 // MARK: - Camera Related Functionalies Manager
 class CameraFeedManager: NSObject {
+    
   // MARK: Camera Related Instance Variables
   private let session: AVCaptureSession = AVCaptureSession()
 
@@ -51,38 +53,6 @@ class CameraFeedManager: NSObject {
     self.attemptToConfigureSession()
   }
 
-  // MARK: Session Start and End methods
-
-  /// This method starts an AVCaptureSession based on whether the camera configuration was successful.
-  func checkCameraConfigurationAndStartSession() {
-    sessionQueue.async {
-      switch self.cameraConfiguration {
-      case .success:
-        self.addObservers()
-        self.startSession()
-      case .failed:
-        DispatchQueue.main.async {
-          self.delegate?.presentVideoConfigurationErrorAlert(self)
-        }
-      case .permissionDenied:
-        DispatchQueue.main.async {
-          self.delegate?.presentCameraPermissionsDeniedAlert(self)
-        }
-      }
-    }
-  }
-
-  /// This method stops a running an AVCaptureSession.
-  func stopSession() {
-    self.removeObservers()
-    sessionQueue.async {
-      if self.session.isRunning {
-        self.session.stopRunning()
-        self.isSessionRunning = self.session.isRunning
-      }
-    }
-
-  }
 
   /// This method resumes an interrupted AVCaptureSession.
   func resumeInterruptedSession(withCompletion completion: @escaping (Bool) -> Void) {
@@ -267,4 +237,37 @@ class CameraFeedManager: NSObject {
 //      delegate?.cameraFeedManagerDidEncounterSessionRunTimeError(self)
 //    }
   }
+}
+
+extension CameraFeedManager: CameraHandler {
+    
+    /// This method starts an AVCaptureSession based on whether the camera configuration was successful.
+    func checkCameraConfigurationAndStartSession() {
+      sessionQueue.async {
+        switch self.cameraConfiguration {
+        case .success:
+          self.addObservers()
+          self.startSession()
+        case .failed:
+          DispatchQueue.main.async {
+            self.delegate?.presentVideoConfigurationErrorAlert(self)
+          }
+        case .permissionDenied:
+          DispatchQueue.main.async {
+            self.delegate?.presentCameraPermissionsDeniedAlert(self)
+          }
+        }
+      }
+    }
+
+    /// This method stops a running an AVCaptureSession.
+    func stopSession() {
+      self.removeObservers()
+      sessionQueue.async {
+        if self.session.isRunning {
+          self.session.stopRunning()
+          self.isSessionRunning = self.session.isRunning
+        }
+      }
+    }
 }

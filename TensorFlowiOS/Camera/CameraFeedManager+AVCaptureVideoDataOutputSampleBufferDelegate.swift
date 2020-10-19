@@ -23,7 +23,7 @@ extension CameraFeedManager: AVCaptureVideoDataOutputSampleBufferDelegate {
       return
     }
 
-    // Delegates the pixel buffer to the ViewController.
+    // Delegates the pixel buffer to the viewModel
     delegate?.cameraFeedManager?(self, didOutput: imagePixelBuffer)
   }
 }

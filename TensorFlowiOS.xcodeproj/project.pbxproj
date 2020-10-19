@@ -14,7 +14,6 @@
 		5080099925237520002C25C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5080099825237520002C25C5 /* Assets.xcassets */; };
 		5080099C25237520002C25C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5080099A25237520002C25C5 /* LaunchScreen.storyboard */; };
 		50AC7420252747A90017D04B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC741F252747A90017D04B /* OverlayView.swift */; };
-		50AC7426252749080017D04B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC7425252749080017D04B /* PreviewView.swift */; };
 		50AC745B252B037B0017D04B /* CVPixelBufferExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC745A252B037B0017D04B /* CVPixelBufferExtension.swift */; };
 		50AC745E252B05460017D04B /* CGSizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC745D252B05460017D04B /* CGSizeExtension.swift */; };
 		50AC746D252B12510017D04B /* CameraFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC746C252B12510017D04B /* CameraFeedManager.swift */; };
@@ -30,6 +29,7 @@
 		50AC74F5252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC74F4252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift */; };
 		50AC7502252B71E70017D04B /* RunModelUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC7501252B71E70017D04B /* RunModelUseCase.swift */; };
 		50AC7511252CA7100017D04B /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC7510252CA7100017D04B /* Koin.swift */; };
+		50FCE35E253D6C4A009F5031 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FCE35D253D6C4A009F5031 /* PreviewView.swift */; };
 		BAB38132C4BC4FE6A7725C56 /* Pods_TensorFlowiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8394028A535E3FD9F1BF731 /* Pods_TensorFlowiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,6 @@
 		5080099B25237520002C25C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5080099D25237520002C25C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50AC741F252747A90017D04B /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
-		50AC7425252749080017D04B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = "../../../examples/lite/examples/posenet/ios/PoseNet/Camera Feed/PreviewView.swift"; sourceTree = "<group>"; };
 		50AC745A252B037B0017D04B /* CVPixelBufferExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBufferExtension.swift; sourceTree = "<group>"; };
 		50AC745D252B05460017D04B /* CGSizeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtension.swift; sourceTree = "<group>"; };
 		50AC746C252B12510017D04B /* CameraFeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeedManager.swift; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		50AC74F4252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraScreenViewController+CameraScreenDelegate.swift"; sourceTree = "<group>"; };
 		50AC7501252B71E70017D04B /* RunModelUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunModelUseCase.swift; sourceTree = "<group>"; };
 		50AC7510252CA7100017D04B /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
+		50FCE35D253D6C4A009F5031 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		690C9140AF043D323309EB6C /* Pods-TensorFlowiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowiOS.release.xcconfig"; path = "Target Support Files/Pods-TensorFlowiOS/Pods-TensorFlowiOS.release.xcconfig"; sourceTree = "<group>"; };
 		C8394028A535E3FD9F1BF731 /* Pods_TensorFlowiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TensorFlowiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,12 +133,12 @@
 		50AC741E2527474C0017D04B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				50FCE35D253D6C4A009F5031 /* PreviewView.swift */,
 				508009932523751F002C25C5 /* CameraScreenViewController.swift */,
 				50AC74F4252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift */,
 				50AC74E4252B54DE0017D04B /* CameraScreenViewModel.swift */,
 				50AC74E8252B5A010017D04B /* CameraScreenViewModel+CameraFeedManagerDelegate.swift */,
 				50AC74EC252B5A6F0017D04B /* CameraScreenDelegate.swift */,
-				50AC7425252749080017D04B /* PreviewView.swift */,
 				50AC741F252747A90017D04B /* OverlayView.swift */,
 				50AC7471252B12B20017D04B /* ModelDataHandler.swift */,
 			);
@@ -297,7 +297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50AC7426252749080017D04B /* PreviewView.swift in Sources */,
 				50AC74E9252B5A010017D04B /* CameraScreenViewModel+CameraFeedManagerDelegate.swift in Sources */,
 				50AC74DC252B51970017D04B /* CameraConfiguration.swift in Sources */,
 				50AC7502252B71E70017D04B /* RunModelUseCase.swift in Sources */,
@@ -305,6 +304,7 @@
 				50AC746D252B12510017D04B /* CameraFeedManager.swift in Sources */,
 				50AC745E252B05460017D04B /* CGSizeExtension.swift in Sources */,
 				508009942523751F002C25C5 /* CameraScreenViewController.swift in Sources */,
+				50FCE35E253D6C4A009F5031 /* PreviewView.swift in Sources */,
 				50AC7420252747A90017D04B /* OverlayView.swift in Sources */,
 				50AC7511252CA7100017D04B /* Koin.swift in Sources */,
 				508009902523751F002C25C5 /* AppDelegate.swift in Sources */,

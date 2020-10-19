@@ -22,11 +22,14 @@ class RunModelUseCase {
         DispatchQueue.global(qos: .userInitiated).sync { [weak self] in
             //https://developer.apple.com/documentation/avfoundation/avlayervideogravity/1385607-resizeaspectfill
             let modelInputRange = overlayViewFrame.applying(
-              previewViewFrame.size.transformKeepAspect(toFitIn: pixelBuffer.size))
-
+                previewViewFrame.size.transformKeepAspect(toFitIn: pixelBuffer.size))
+            
             // Run PoseNet model.
-//            guard
-              return self?.modelDataHandler.runPoseNet(
+            print("Pixel Buffer: ",pixelBuffer.size)
+            print("overlayViewFrame: ", overlayViewFrame.size)
+            print("previewViewFrame: ", previewViewFrame.size)
+            print("modelInputRange: ", modelInputRange.size)
+            return self?.modelDataHandler.runPoseNet(
                 on: pixelBuffer,
                 from: modelInputRange,
                 to: overlayViewFrame.size) ?? (Result(dots: [], lines: [], score: 0), Times(preprocessing: 0, inference: 0, postprocessing: 0))

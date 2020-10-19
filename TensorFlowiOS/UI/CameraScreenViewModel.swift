@@ -20,9 +20,9 @@ class CameraScreenViewModel {
     
     init(cameraScreenDelegate: CameraScreenDelegate) {
         self.cameraScreenDelegate = cameraScreenDelegate
-        let cameraCapture = CameraFeedManager(previewView: cameraScreenDelegate.getPreviewView())
-        startSessionUseCase = StartSessionUseCase(cameraCapture: cameraCapture)
-        endSessionUseCase = EndSessionUseCase(cameraCapture: cameraCapture)
+        let cameraHandler = CameraFeedManager(previewView: cameraScreenDelegate.getPreviewView())
+        startSessionUseCase = StartSessionUseCase(cameraHandler: cameraHandler)
+        endSessionUseCase = EndSessionUseCase(cameraHandler: cameraHandler)
         do {
             let modelDataHandler = try ModelDataHandler()
             runModelUseCase = RunModelUseCase(modelDataHandler: modelDataHandler)
@@ -30,7 +30,7 @@ class CameraScreenViewModel {
         catch let error {
             fatalError(error.localizedDescription)
         }
-        cameraCapture.delegate = self
+        cameraHandler.delegate = self
     }
     
     func startSession() {

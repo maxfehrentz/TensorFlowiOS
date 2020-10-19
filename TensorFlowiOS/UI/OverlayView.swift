@@ -44,7 +44,6 @@ class OverlayView: UIView {
         linePath.move(to: CGPoint(x: line.from.x, y: line.from.y))
         linePath.addLine(to: CGPoint(x: line.to.x, y: line.to.y))
         linePath.close()
-        
         linePath.lineWidth = Traits.line.width
         Traits.line.color.setStroke()
         
