@@ -3,27 +3,65 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		508009902523751F002C25C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080098F2523751F002C25C5 /* AppDelegate.swift */; };
 		508009922523751F002C25C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508009912523751F002C25C5 /* SceneDelegate.swift */; };
-		508009942523751F002C25C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508009932523751F002C25C5 /* ViewController.swift */; };
+		508009942523751F002C25C5 /* CameraScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508009932523751F002C25C5 /* CameraScreenViewController.swift */; };
 		508009972523751F002C25C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508009952523751F002C25C5 /* Main.storyboard */; };
 		5080099925237520002C25C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5080099825237520002C25C5 /* Assets.xcassets */; };
 		5080099C25237520002C25C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5080099A25237520002C25C5 /* LaunchScreen.storyboard */; };
+		50AC7420252747A90017D04B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC741F252747A90017D04B /* OverlayView.swift */; };
+		50AC7426252749080017D04B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC7425252749080017D04B /* PreviewView.swift */; };
+		50AC745B252B037B0017D04B /* CVPixelBufferExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC745A252B037B0017D04B /* CVPixelBufferExtension.swift */; };
+		50AC745E252B05460017D04B /* CGSizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC745D252B05460017D04B /* CGSizeExtension.swift */; };
+		50AC746D252B12510017D04B /* CameraFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC746C252B12510017D04B /* CameraFeedManager.swift */; };
+		50AC7472252B12B20017D04B /* ModelDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC7471252B12B20017D04B /* ModelDataHandler.swift */; };
+		50AC7483252B141F0017D04B /* TFLiteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC7482252B141F0017D04B /* TFLiteExtension.swift */; };
+		50AC749E252B20A80017D04B /* posenet_mobilenet_v1_100_257x257_multi_kpt_stripped.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 50AC749D252B20A80017D04B /* posenet_mobilenet_v1_100_257x257_multi_kpt_stripped.tflite */; };
+		50AC74D8252B51510017D04B /* CameraFeedManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC74D7252B51510017D04B /* CameraFeedManagerDelegate.swift */; };
+		50AC74DC252B51970017D04B /* CameraConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC74DB252B51970017D04B /* CameraConfiguration.swift */; };
+		50AC74DF252B51ED0017D04B /* CameraFeedManager+AVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC74DE252B51ED0017D04B /* CameraFeedManager+AVCaptureVideoDataOutputSampleBufferDelegate.swift */; };
+		50AC74E5252B54DE0017D04B /* CameraScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC74E4252B54DE0017D04B /* CameraScreenViewModel.swift */; };
+		50AC74E9252B5A010017D04B /* CameraScreenViewModel+CameraFeedManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC74E8252B5A010017D04B /* CameraScreenViewModel+CameraFeedManagerDelegate.swift */; };
+		50AC74ED252B5A6F0017D04B /* CameraScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC74EC252B5A6F0017D04B /* CameraScreenDelegate.swift */; };
+		50AC74F5252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC74F4252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift */; };
+		50AC7502252B71E70017D04B /* RunModelUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC7501252B71E70017D04B /* RunModelUseCase.swift */; };
+		50AC7511252CA7100017D04B /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC7510252CA7100017D04B /* Koin.swift */; };
+		BAB38132C4BC4FE6A7725C56 /* Pods_TensorFlowiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8394028A535E3FD9F1BF731 /* Pods_TensorFlowiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EFC8B384A426A4701748728 /* Pods-TensorFlowiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowiOS.debug.xcconfig"; path = "Target Support Files/Pods-TensorFlowiOS/Pods-TensorFlowiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5080098C2523751F002C25C5 /* TensorFlowiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TensorFlowiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5080098F2523751F002C25C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508009912523751F002C25C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		508009932523751F002C25C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		508009932523751F002C25C5 /* CameraScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreenViewController.swift; sourceTree = "<group>"; };
 		508009962523751F002C25C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5080099825237520002C25C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5080099B25237520002C25C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5080099D25237520002C25C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50AC741F252747A90017D04B /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		50AC7425252749080017D04B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = "../../../examples/lite/examples/posenet/ios/PoseNet/Camera Feed/PreviewView.swift"; sourceTree = "<group>"; };
+		50AC745A252B037B0017D04B /* CVPixelBufferExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBufferExtension.swift; sourceTree = "<group>"; };
+		50AC745D252B05460017D04B /* CGSizeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtension.swift; sourceTree = "<group>"; };
+		50AC746C252B12510017D04B /* CameraFeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeedManager.swift; sourceTree = "<group>"; };
+		50AC7471252B12B20017D04B /* ModelDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataHandler.swift; sourceTree = "<group>"; };
+		50AC7482252B141F0017D04B /* TFLiteExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLiteExtension.swift; sourceTree = "<group>"; };
+		50AC749D252B20A80017D04B /* posenet_mobilenet_v1_100_257x257_multi_kpt_stripped.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = posenet_mobilenet_v1_100_257x257_multi_kpt_stripped.tflite; sourceTree = "<group>"; };
+		50AC74D7252B51510017D04B /* CameraFeedManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeedManagerDelegate.swift; sourceTree = "<group>"; };
+		50AC74DB252B51970017D04B /* CameraConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfiguration.swift; sourceTree = "<group>"; };
+		50AC74DE252B51ED0017D04B /* CameraFeedManager+AVCaptureVideoDataOutputSampleBufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraFeedManager+AVCaptureVideoDataOutputSampleBufferDelegate.swift"; sourceTree = "<group>"; };
+		50AC74E4252B54DE0017D04B /* CameraScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreenViewModel.swift; sourceTree = "<group>"; };
+		50AC74E8252B5A010017D04B /* CameraScreenViewModel+CameraFeedManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraScreenViewModel+CameraFeedManagerDelegate.swift"; sourceTree = "<group>"; };
+		50AC74EC252B5A6F0017D04B /* CameraScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreenDelegate.swift; sourceTree = "<group>"; };
+		50AC74F4252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraScreenViewController+CameraScreenDelegate.swift"; sourceTree = "<group>"; };
+		50AC7501252B71E70017D04B /* RunModelUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunModelUseCase.swift; sourceTree = "<group>"; };
+		50AC7510252CA7100017D04B /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
+		690C9140AF043D323309EB6C /* Pods-TensorFlowiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TensorFlowiOS.release.xcconfig"; path = "Target Support Files/Pods-TensorFlowiOS/Pods-TensorFlowiOS.release.xcconfig"; sourceTree = "<group>"; };
+		C8394028A535E3FD9F1BF731 /* Pods_TensorFlowiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TensorFlowiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +69,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB38132C4BC4FE6A7725C56 /* Pods_TensorFlowiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AAAAF4B3BE0FECBB3DBF118 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8394028A535E3FD9F1BF731 /* Pods_TensorFlowiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D1B7DF9B1E6B8D6F379B971 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EFC8B384A426A4701748728 /* Pods-TensorFlowiOS.debug.xcconfig */,
+				690C9140AF043D323309EB6C /* Pods-TensorFlowiOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		508009832523751F002C25C5 = {
 			isa = PBXGroup;
 			children = (
 				5080098E2523751F002C25C5 /* TensorFlowiOS */,
 				5080098D2523751F002C25C5 /* Products */,
+				3D1B7DF9B1E6B8D6F379B971 /* Pods */,
+				1AAAAF4B3BE0FECBB3DBF118 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +114,72 @@
 		5080098E2523751F002C25C5 /* TensorFlowiOS */ = {
 			isa = PBXGroup;
 			children = (
+				50AC74F9252B6E740017D04B /* Domain */,
+				50AC7459252B035A0017D04B /* Base */,
+				50AC7422252748880017D04B /* Model */,
+				50AC74D6252B4F660017D04B /* Camera */,
+				50AC741E2527474C0017D04B /* UI */,
 				5080098F2523751F002C25C5 /* AppDelegate.swift */,
+				50AC7510252CA7100017D04B /* Koin.swift */,
 				508009912523751F002C25C5 /* SceneDelegate.swift */,
-				508009932523751F002C25C5 /* ViewController.swift */,
 				508009952523751F002C25C5 /* Main.storyboard */,
 				5080099825237520002C25C5 /* Assets.xcassets */,
 				5080099A25237520002C25C5 /* LaunchScreen.storyboard */,
 				5080099D25237520002C25C5 /* Info.plist */,
 			);
 			path = TensorFlowiOS;
+			sourceTree = "<group>";
+		};
+		50AC741E2527474C0017D04B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				508009932523751F002C25C5 /* CameraScreenViewController.swift */,
+				50AC74F4252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift */,
+				50AC74E4252B54DE0017D04B /* CameraScreenViewModel.swift */,
+				50AC74E8252B5A010017D04B /* CameraScreenViewModel+CameraFeedManagerDelegate.swift */,
+				50AC74EC252B5A6F0017D04B /* CameraScreenDelegate.swift */,
+				50AC7425252749080017D04B /* PreviewView.swift */,
+				50AC741F252747A90017D04B /* OverlayView.swift */,
+				50AC7471252B12B20017D04B /* ModelDataHandler.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		50AC7422252748880017D04B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				50AC749D252B20A80017D04B /* posenet_mobilenet_v1_100_257x257_multi_kpt_stripped.tflite */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		50AC7459252B035A0017D04B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				50AC745A252B037B0017D04B /* CVPixelBufferExtension.swift */,
+				50AC745D252B05460017D04B /* CGSizeExtension.swift */,
+				50AC7482252B141F0017D04B /* TFLiteExtension.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		50AC74D6252B4F660017D04B /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				50AC746C252B12510017D04B /* CameraFeedManager.swift */,
+				50AC74D7252B51510017D04B /* CameraFeedManagerDelegate.swift */,
+				50AC74DB252B51970017D04B /* CameraConfiguration.swift */,
+				50AC74DE252B51ED0017D04B /* CameraFeedManager+AVCaptureVideoDataOutputSampleBufferDelegate.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		50AC74F9252B6E740017D04B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				50AC7501252B71E70017D04B /* RunModelUseCase.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 508009A025237520002C25C5 /* Build configuration list for PBXNativeTarget "TensorFlowiOS" */;
 			buildPhases = (
+				719F2CDFB502E803923004BE /* [CP] Check Pods Manifest.lock */,
 				508009882523751F002C25C5 /* Sources */,
 				508009892523751F002C25C5 /* Frameworks */,
 				5080098A2523751F002C25C5 /* Resources */,
+				EB0A244176565838D16B81F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,19 +244,78 @@
 				5080099C25237520002C25C5 /* LaunchScreen.storyboard in Resources */,
 				5080099925237520002C25C5 /* Assets.xcassets in Resources */,
 				508009972523751F002C25C5 /* Main.storyboard in Resources */,
+				50AC749E252B20A80017D04B /* posenet_mobilenet_v1_100_257x257_multi_kpt_stripped.tflite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		719F2CDFB502E803923004BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TensorFlowiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB0A244176565838D16B81F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TensorFlowiOS/Pods-TensorFlowiOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TensorFlowiOS/Pods-TensorFlowiOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TensorFlowiOS/Pods-TensorFlowiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		508009882523751F002C25C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				508009942523751F002C25C5 /* ViewController.swift in Sources */,
+				50AC7426252749080017D04B /* PreviewView.swift in Sources */,
+				50AC74E9252B5A010017D04B /* CameraScreenViewModel+CameraFeedManagerDelegate.swift in Sources */,
+				50AC74DC252B51970017D04B /* CameraConfiguration.swift in Sources */,
+				50AC7502252B71E70017D04B /* RunModelUseCase.swift in Sources */,
+				50AC745B252B037B0017D04B /* CVPixelBufferExtension.swift in Sources */,
+				50AC746D252B12510017D04B /* CameraFeedManager.swift in Sources */,
+				50AC745E252B05460017D04B /* CGSizeExtension.swift in Sources */,
+				508009942523751F002C25C5 /* CameraScreenViewController.swift in Sources */,
+				50AC7420252747A90017D04B /* OverlayView.swift in Sources */,
+				50AC7511252CA7100017D04B /* Koin.swift in Sources */,
 				508009902523751F002C25C5 /* AppDelegate.swift in Sources */,
+				50AC74ED252B5A6F0017D04B /* CameraScreenDelegate.swift in Sources */,
+				50AC7483252B141F0017D04B /* TFLiteExtension.swift in Sources */,
 				508009922523751F002C25C5 /* SceneDelegate.swift in Sources */,
+				50AC74D8252B51510017D04B /* CameraFeedManagerDelegate.swift in Sources */,
+				50AC74F5252B5AA60017D04B /* CameraScreenViewController+CameraScreenDelegate.swift in Sources */,
+				50AC74E5252B54DE0017D04B /* CameraScreenViewModel.swift in Sources */,
+				50AC7472252B12B20017D04B /* ModelDataHandler.swift in Sources */,
+				50AC74DF252B51ED0017D04B /* CameraFeedManager+AVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +459,14 @@
 		};
 		508009A125237520002C25C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EFC8B384A426A4701748728 /* Pods-TensorFlowiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 299M8DRUR6;
 				INFOPLIST_FILE = TensorFlowiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,12 +480,14 @@
 		};
 		508009A225237520002C25C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 690C9140AF043D323309EB6C /* Pods-TensorFlowiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 299M8DRUR6;
 				INFOPLIST_FILE = TensorFlowiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
