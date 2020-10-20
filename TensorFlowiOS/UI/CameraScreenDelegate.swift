@@ -13,7 +13,7 @@ protocol CameraScreenDelegate: AnyObject {
     func showCameraPermissionDeniedAlert()
     func drawResult(of result: Result)
     func clearResult()
-    func getOverlayViewFrame() -> CGRect?
-    func getPreviewViewFrame() -> CGRect?
     func getPreviewView() -> PreviewView
+    func getOverlayViewFrame() -> CGRect
+    func getPreviewViewFrame() -> CGRect
 }

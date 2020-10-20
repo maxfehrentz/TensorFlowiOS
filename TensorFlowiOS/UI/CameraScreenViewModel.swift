@@ -7,6 +7,7 @@
 
 import Foundation
 import shared
+import UIKit
 
 class CameraScreenViewModel {
     
@@ -17,9 +18,13 @@ class CameraScreenViewModel {
     private let startSessionUseCase: StartSessionUseCase
     private let endSessionUseCase: EndSessionUseCase
     private(set) var runModelUseCase: RunModelUseCase
+    let overlayViewFrame: CGRect
+    let previewViewFrame: CGRect
     
     init(cameraScreenDelegate: CameraScreenDelegate) {
         self.cameraScreenDelegate = cameraScreenDelegate
+        self.overlayViewFrame = cameraScreenDelegate.getOverlayViewFrame()
+        self.previewViewFrame = cameraScreenDelegate.getPreviewViewFrame()
         let cameraHandler = CameraFeedManager(previewView: cameraScreenDelegate.getPreviewView())
         startSessionUseCase = StartSessionUseCase(cameraHandler: cameraHandler)
         endSessionUseCase = EndSessionUseCase(cameraHandler: cameraHandler)

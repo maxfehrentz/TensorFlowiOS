@@ -41,22 +41,26 @@ extension CameraScreenViewController: CameraScreenDelegate {
     }
     
     func drawResult(of result: Result) {
-        self.overlayView.dots = result.dots
-        self.overlayView.lines = result.lines
-        self.overlayView.setNeedsDisplay()
+        DispatchQueue.main.async { [weak self] in
+            self?.overlayView.dots = result.dots
+            self?.overlayView.lines = result.lines
+            self?.overlayView.setNeedsDisplay()
+        }
     }
     
     func clearResult() {
-        self.overlayView.clear()
-        self.overlayView.setNeedsDisplay()
+        DispatchQueue.main.async { [weak self] in
+            self?.overlayView.clear()
+            self?.overlayView.setNeedsDisplay()
+        }
     }
     
-    func getOverlayViewFrame() -> CGRect? {
-        return overlayView.frame
+    func getOverlayViewFrame() -> CGRect {
+        return view.frame
     }
-    
-    func getPreviewViewFrame() -> CGRect? {
-        return previewView.frame
+
+    func getPreviewViewFrame() -> CGRect {
+        return view.frame
     }
     
     func getPreviewView() -> PreviewView {

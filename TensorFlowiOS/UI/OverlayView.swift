@@ -34,7 +34,6 @@ class OverlayView: UIView {
             x: dot.x - Traits.dot.radius / 2, y: dot.y - Traits.dot.radius / 2,
             width: Traits.dot.radius, height: Traits.dot.radius)
         let dotPath = UIBezierPath(ovalIn: dotRect)
-        
         Traits.dot.color.setFill()
         dotPath.fill()
     }

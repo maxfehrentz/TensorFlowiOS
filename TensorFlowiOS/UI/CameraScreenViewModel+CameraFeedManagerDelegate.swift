@@ -12,20 +12,16 @@ import shared
 
 extension CameraScreenViewModel: CameraFeedManagerDelegate {
     func cameraFeedManager(_ manager: CameraFeedManager, didOutput pixelBuffer: CVPixelBuffer) {
-        DispatchQueue.main.async { [weak self] in
-            if let overlayViewFrame = self?.cameraScreenDelegate.getOverlayViewFrame(), let previewViewFrame = self?.cameraScreenDelegate.getPreviewViewFrame(), let self = self {
-                let (result, times): (Result, Times) =  self.runModelUseCase.invoke(pixelBuffer: pixelBuffer, overlayViewFrame: overlayViewFrame, previewViewFrame: previewViewFrame)
-                // Draw result.
-                // update inferencedData
-                self.inferencedData = InferencedData(score: result.score, times: times)
-                // If score is too low, clear result remaining in the overlayView.
-                if result.score < Constants.Companion().minimumScore {
-                    self.clearResult()
-                    return
-                }
-                self.drawResult(of: result)
-            }
+        let (result, times): (Result, Times) =  self.runModelUseCase.invoke(pixelBuffer: pixelBuffer, overlayViewFrame: self.overlayViewFrame, previewViewFrame: self.previewViewFrame)
+        // Draw result.
+        // update inferencedData
+        self.inferencedData = InferencedData(score: result.score, times: times)
+        // If score is too low, clear result remaining in the overlayView.
+        if result.score < Constants.Companion().minimumScore {
+            self.clearResult()
+            return
         }
+        self.drawResult(of: result)
     }
     
     //  // MARK: Session Handling Alerts
