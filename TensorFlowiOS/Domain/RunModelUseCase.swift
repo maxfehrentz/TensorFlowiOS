@@ -21,8 +21,15 @@ class RunModelUseCase {
     func invoke(pixelBuffer: CVBuffer, overlayViewFrame: CGRect, previewViewFrame: CGRect) -> (Result, Times) {
         DispatchQueue.global(qos: .userInitiated).sync { [weak self] in
             //https://developer.apple.com/documentation/avfoundation/avlayervideogravity/1385607-resizeaspectfill
-            let modelInputRange = overlayViewFrame.applying(
+            print("overlayViewFrame: ", overlayViewFrame)
+            print("previewViewFrame: ", previewViewFrame)
+            print("pixelBuffer.size: ", pixelBuffer.size)
+            var modelInputRange = overlayViewFrame.applying(
                 previewViewFrame.size.transformKeepAspect(toFitIn: pixelBuffer.size))
+            if(Int(modelInputRange.height) == 1920) {
+                modelInputRange = CGRect(x: modelInputRange.minX, y: modelInputRange.minY, width: modelInputRange.width, height: 1920)
+            }
+            print("modelInputRange: ", modelInputRange)
             // Run PoseNet model.
             return self?.modelDataHandler.runPoseNet(
                 on: pixelBuffer,
