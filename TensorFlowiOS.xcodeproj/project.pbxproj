@@ -190,6 +190,7 @@
 			buildConfigurationList = 508009A025237520002C25C5 /* Build configuration list for PBXNativeTarget "TensorFlowiOS" */;
 			buildPhases = (
 				719F2CDFB502E803923004BE /* [CP] Check Pods Manifest.lock */,
+				15EB8D1AD56E85453D0610F7 /* [CP-User] Run Flutter Build flutter_module Script */,
 				508009882523751F002C25C5 /* Sources */,
 				508009892523751F002C25C5 /* Frameworks */,
 				5080098A2523751F002C25C5 /* Resources */,
@@ -251,6 +252,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		15EB8D1AD56E85453D0610F7 /* [CP-User] Run Flutter Build flutter_module Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../flutter_module/.metadata",
+				"${SRCROOT}/../flutter_module/.ios/Flutter/App.framework/App",
+				"${SRCROOT}/../flutter_module/.ios/Flutter/engine/Flutter.framework/Flutter",
+				"${SRCROOT}/../flutter_module/.ios/Flutter/flutter_export_environment.sh",
+			);
+			name = "[CP-User] Run Flutter Build flutter_module Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../flutter_module/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+		};
 		719F2CDFB502E803923004BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

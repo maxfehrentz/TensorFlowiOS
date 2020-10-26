@@ -9,8 +9,10 @@ import Foundation
 import AVFoundation
 import os
 import shared
+import Flutter
 
 extension CameraScreenViewModel: CameraFeedManagerDelegate {
+        
     func cameraFeedManager(_ manager: CameraFeedManager, didOutput pixelBuffer: CVPixelBuffer) {
         let (result, times): (Result, Times) =  self.runModelUseCase.invoke(pixelBuffer: pixelBuffer, overlayViewFrame: self.overlayViewFrame, previewViewFrame: self.previewViewFrame)
         // Draw result.
@@ -21,6 +23,7 @@ extension CameraScreenViewModel: CameraFeedManagerDelegate {
             self.clearResult()
             return
         }
+        behaviorRelay.accept(result.score)
         self.drawResult(of: result)
     }
     
@@ -69,3 +72,17 @@ extension CameraScreenViewModel: CameraFeedManagerDelegate {
     }
 }
 
+
+extension CameraScreenViewModel: FlutterStreamHandler {
+    func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+        behaviorRelay.asObservable().subscribe(onNext: { score in
+            events(score)
+        }).disposed(by: disposeBag)
+        return nil
+    }
+    
+    func onCancel(withArguments arguments: Any?) -> FlutterError? {
+        return nil
+    }
+    
+}

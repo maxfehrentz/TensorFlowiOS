@@ -4,10 +4,16 @@ platform :ios, '13.0'
 
 install! 'cocoapods', :deterministic_uuids => false
 
+flutter_application_path = '../flutter_module'
+load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+
 target 'TensorFlowiOS' do
        pod 'shared', :path => '../TensorFlowMultiplatform/shared'
        pod 'TensorFlowLiteSwift', '~> 0.0.1-nightly', :subspecs => ['CoreML', 'Metal']
        pod 'SnapKit', '~> 5.0.1'
+       pod 'RxSwift'
+       pod 'RxCocoa'
+       install_all_flutter_pods(flutter_application_path)
 end
 
 post_install do |installer|

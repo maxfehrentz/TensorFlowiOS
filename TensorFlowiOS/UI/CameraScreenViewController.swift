@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import os
+import Flutter
 
 class CameraScreenViewController: UIViewController {
     
@@ -20,6 +21,10 @@ class CameraScreenViewController: UIViewController {
         addSubviews()
         layoutSubviews()
         configureSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         viewModel = CameraScreenViewModel(cameraScreenDelegate: self)
     }
     
@@ -41,12 +46,8 @@ class CameraScreenViewController: UIViewController {
         overlayView.backgroundColor = UIColor.clear
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.startSession()
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         viewModel.stopSession()
     }
 }

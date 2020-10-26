@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Flutter
 
 extension CameraScreenViewController: CameraScreenDelegate {
     
@@ -65,5 +66,9 @@ extension CameraScreenViewController: CameraScreenDelegate {
     
     func getPreviewView() -> PreviewView {
         return previewView
+    }
+    
+    func presentFlutterViewController(_ flutterViewController: FlutterViewController) {
+        present(flutterViewController, animated: true, completion: nil)
     }
 }

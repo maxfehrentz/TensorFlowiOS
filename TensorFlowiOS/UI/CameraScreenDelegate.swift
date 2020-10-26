@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Flutter
 
 protocol CameraScreenDelegate: AnyObject {
     func showVideoConfigurationErrorAlert()
@@ -16,4 +17,6 @@ protocol CameraScreenDelegate: AnyObject {
     func getPreviewView() -> PreviewView
     func getOverlayViewFrame() -> CGRect
     func getPreviewViewFrame() -> CGRect
+    
+    func presentFlutterViewController(_ flutterViewController: FlutterViewController)
 }

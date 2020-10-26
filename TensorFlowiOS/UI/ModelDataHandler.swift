@@ -36,7 +36,7 @@ class ModelDataHandler {
     /// successfully loaded from the app's main bundle. Default `threadCount` is 2.
     init(
         threadCount: Int = Int(Constants.Companion().threadCount),
-        delegate: Delegates = .metal
+        delegate: Delegates = .gpu
     ) throws {
         // Construct the path to the model file.
         guard
@@ -55,9 +55,9 @@ class ModelDataHandler {
         // Specify the delegates for the `Interpreter`.
         var delegates: [Delegate]?
         switch delegate {
-        case .metal:
+        case .gpu:
             delegates = [MetalDelegate()]
-        case .npu:
+        case .nnapi:
             if let coreMLDelegate = CoreMLDelegate() {
                 delegates = [coreMLDelegate]
             } else {
